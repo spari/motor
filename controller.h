@@ -38,9 +38,9 @@ class Controller {
       void start_motor();
       void stop_motor();
       bool is_motor_started();
+      time_t last_run_time = 0;
 
    private:
-      time_t last_run_time = 0;
       int stop_motor_id = dtINVALID_ALARM_ID;
       bool motor_started = false;
 };
