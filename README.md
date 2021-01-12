@@ -5,7 +5,7 @@ Details at: https://matrix108.wordpress.com/2020/07/20/motor-controller-v2/
 | Date       | Version | Description                                                  |
 | ---------- | ------- | ------------------------------------------------------------ |
 | 2019-09-18 | 1.0     | - First working version.                                     |
-| 2021-01-11 | 2.0     | - Uses ConfigManager for managing WiFi and application configuration. <br />- No longer uses TimeAlarms for keeping alive or checking mqtt, ntp, and ota. |
+| 2020-07-20 | 2.0     | - Uses ConfigManager for managing WiFi and application configuration. <br />- No longer uses TimeAlarms for keeping alive or checking mqtt, ntp, and ota. |
 
 ## Dependencies
 
