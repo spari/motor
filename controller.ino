@@ -35,7 +35,7 @@ void Controller::start_motor()
    }
 
    time_t ctime = now();
-   if (difftime(ctime, last_run_time) <= conf->restart_delay*60) {
+   if (difftime(ctime, last_stop_time) <= conf->restart_delay*60) {
       log_info("Motor was just run. Please wait %d min before restarting.", conf->restart_delay);
       return;
    }
@@ -60,7 +60,7 @@ void Controller::stop_motor()
    stop_motor_id = dtINVALID_ALARM_ID;
 
    if (is_motor_started()) {
-      last_run_time = now();
+      last_stop_time = now();
    }
 
    log_info("--> Stopping Motor.");

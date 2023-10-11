@@ -20,8 +20,9 @@
 #include "sensors.h"
 #include "dol_starter.h"
 #include "controller.h"
+#include "ap_switch.h"
 
-const char* CODE_VERSION = "2.0";
+const char* CODE_VERSION = "2.1";
 
 /*
  * Pin assignments.
@@ -35,10 +36,17 @@ struct sensors_gpio Sensors::gpio = {
    .current_sensor = A0
 };
 
+struct ap_switch_gpio ApSwitch::gpio = {
+   .ap_button = D7
+};
+
 struct signaller_gpio Signaller::gpio = {
-   .sysok_led = BUILTIN_LED,
-   .status_led = BUILTIN_LED,
-   .buzzer = -1
+   .sysok_led = LED_BUILTIN,
+   .status_led = LED_BUILTIN
+/*
+   .sysok_led = D3,
+   .status_led = D4
+*/
 };
 
 Signaller signaller;
@@ -49,6 +57,7 @@ WifiUtils wifi_utils;
 
 Sensors sensors;
 DolStarter dol_starter;
+ApSwitch ap_switch;
 Controller controller;
 
 #endif

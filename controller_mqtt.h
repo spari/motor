@@ -10,7 +10,8 @@ const char* MotorOn = "on";
 /*
  * MQTT Topics 
  */
-const char* TOPIC_POWER         = "/power";
+const char* TOPIC_START         = "/start";
+const char* TOPIC_STOP          = "/stop";
 const char* TOPIC_AMPS          = "/amps";
 const char* TOPIC_RESULT        = "/result";
 const char* TOPIC_RESTART       = "/restart";

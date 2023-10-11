@@ -7,7 +7,8 @@
 
 void MqttUtils::subscribe_topics()
 {
-   mqtt_utils.subscribe(TOPIC_POWER);
+   mqtt_utils.subscribe(TOPIC_START);
+   mqtt_utils.subscribe(TOPIC_STOP);
    mqtt_utils.subscribe(TOPIC_AMPS);
    mqtt_utils.subscribe(TOPIC_RESTART);
    mqtt_utils.subscribe(TOPIC_SYSINFO);
@@ -40,16 +41,11 @@ void MqttUtils::callback(const char* topic, byte* payload, unsigned int size)
    if (!strcmp(subtopic, TOPIC_HELLO)) {
       mqtt_utils.publish(TOPIC_RESULT, "namaste");
    }
-   else if (!strcmp(subtopic, TOPIC_POWER)) {
-      if (!strcmp(payload_copy, MotorOn)) {
-         controller.start_motor();
-      }
-      else if (!strcmp(payload_copy, MotorOff)) {
-         controller.stop_motor();
-      }
-      else {
-         log_warn("Invalid power param (valid power params: %s,%s): '%s'", MotorOff, MotorOn, payload_copy);
-      }
+   else if (!strcmp(subtopic, TOPIC_START)) {
+      controller.start_motor();
+   }
+   else if (!strcmp(subtopic, TOPIC_STOP)) {
+      controller.stop_motor();
    }
    else if (!strcmp(subtopic, TOPIC_AMPS)) {
       publish_current();
